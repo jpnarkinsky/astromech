@@ -1,0 +1,22 @@
+{
+  "name": "astromech",
+  "version": "0.1.0",
+  "description": "Astromech",
+  "main": "js/index.js",
+  "repository": "https://github.com/jpnarkinsky/astromech",
+  "author": "Patrick Narkinsky <patrick@narkinsky.com>",
+  "license": "GPL2",
+  "devDependencies": {
+    "coffeescript": "2"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-util": "^3.0.8"
+  },
+  "scripts": {
+    "prestart": "gulp coffee",
+    "start": "node js/"
+  }
+}
