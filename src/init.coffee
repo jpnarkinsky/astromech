@@ -1,16 +1,17 @@
 fs = require 'fs'
+path = require 'path'
 Promise = require 'bluebird'
 Mustache = require 'mustache'
 
 manifest = [
   {
-    name: steps,
+    name: "steps",
     type: 'directory',
   },
   {
-    name: stages,
+    name: 'stages',
     type: 'directory'
-    content: [
+    items: [
       {
         type: "file",
         name: "dev.yaml",
@@ -37,10 +38,24 @@ manifest = [
   }
 ]
 
-processEntry = (entry) ->
+processEntry = (entry, base, data, depth=0) ->
+  indent = ' '.repeat(depth * 2) 
   switch entry.type
-  when  
+    when "directory"
+      dirName = path.join(base, entry.name);
+      console.log "#{indent}Creating path #{dirName}"
+      if (!fs.existsSync(dirName))
+        fs.mkdirSync(dirName);
+      
+      if entry.items
+        processEntry(item, dirName, data, depth + 1) for item in entry.items
+    else
+      console.log("Dir is #{base}, entry name is #{entry.name}")
+      filePath = path.join(base, entry.name)
+      console.log "#{indent}Creating path #{filePath}"
+      fs.writeFileSync(filePath, Mustache.render(entry.content, data))
+  
 
 module.exports = (dir='.', cmd) -> 
-  try
-    await Promise.map manifest, processEntry
+  projectName = cmd.projectName || path.basename(path.resolve(dir))
+  processEntry entry, dir, {projectName} for entry in manifest

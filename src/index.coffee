@@ -18,6 +18,7 @@ program
 program
 	.command 'init [dir]'
 	.description 'initialize a project'
+  .option('-p, --project-name <projectName>', 'Project name to use (defaults to directory name')
 	.action init
 
 program
