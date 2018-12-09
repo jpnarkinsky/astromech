@@ -3,7 +3,7 @@ program = require('commander')
 version = require('./version')
 
 # Include commands
-init = require('./init')
+init = require('./commands/init')
 
 program
 	.name('astromech')

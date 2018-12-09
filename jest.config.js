@@ -136,6 +136,7 @@ module.exports = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
     // "**/__tests__/**/*.js?(x)",
+    "test/*.coffee",
     "**/*.spec.coffee?(x)",
   ],
 
@@ -160,7 +161,7 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  transform:  {
+  transform: {
     ".*": "<rootDir>/transformer.js"
   },
 
