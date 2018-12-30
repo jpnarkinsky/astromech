@@ -8,20 +8,20 @@ manifest = [
     name: "steps",
     type: 'directory',
   },
-  {
-    name: 'stages',
-    type: 'directory'
-    items: [
-      {
-        type: "file",
-        name: "dev.yaml",
-        content: """
-          name: development
-          context: dev
-        """
-      },
-    ],
-  },
+  # {
+  #   name: 'stages',
+  #   type: 'directory'
+  #   items: [
+  #     {
+  #       type: "file",
+  #       name: "dev.yaml",
+  #       content: """
+  #         name: development
+  #         context: dev
+  #       """
+  #     },
+  #   ],
+  # },
   {
     name: "README.md",
     content: """

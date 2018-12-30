@@ -1,1 +1,7 @@
 project: caremesh
+stages:
+  sit:
+    connections:
+    - name: cluster
+      adapter: k8s
+      context: sit

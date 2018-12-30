@@ -2434,9 +2434,9 @@ kleur@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.2.tgz#b704f4944d95e255d038f0cb05fb8a602c55a300"
 
-kubernetes-client@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/kubernetes-client/-/kubernetes-client-6.5.0.tgz#63f45c5ca46ae3cc0174a38d15501701fe1e4afc"
+"kubernetes-client@https://github.com/jpnarkinsky/kubernetes-client":
+  version "6.5.1"
+  resolved "https://github.com/jpnarkinsky/kubernetes-client#7ef1eb1ed00b169c72a73d283091f60464e0ba1f"
   dependencies:
     deepmerge "^2.1.1"
     fluent-openapi "^1.0.0"
