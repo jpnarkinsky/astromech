@@ -1,19 +1,16 @@
 colors = require('colors')
+logger = require('./logger')
 program = require('commander')
 version = require('./version')
 
 # Include commands
 init = require('./commands/init')
+generate = require('./commands/generate')
 
 program
 	.name('astromech')
-	.version(version)
-
-program
-	.command 'dump [version]'
-	.description 'dump current state to stdout'
-	.action (version, cmd) ->
-		console.log("Would dump objects")
+  .version(version)
+  .option('-c, --config <path>', 'Configuration file to load')
 
 program
 	.command 'init [dir]'
@@ -27,5 +24,20 @@ program
 	.action (cmd) ->
 		console.log("Would output versions")
 
+program
+  .command 'generate [name]'
+  .description 'Generate a new iteration'
+  .option('-l, --language <language', "Language to use (coffee, js")
+  .action generate
+
+program.on 'option:config', ->
+  console.log 'Not implemented'
+  process.exit 1
+
+program.on 'command:*', ->
+  process.stderr.write(
+    colors.red("Invalid command #{program.args.join(' ')}\nsee --help for valid commands")
+    )
+  process.exit(1)
+
 program.parse process.argv
-program.outputHelp colors.red if (process.argv.length < 3)

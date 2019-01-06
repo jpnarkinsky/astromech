@@ -1,7 +1,8 @@
 project: caremesh
-stages:
+contexts:
   sit:
-    connections:
-    - name: cluster
-      adapter: k8s
-      context: sit
+    services:
+    - name: k8s
+      adapter: kubernetes
+      arguments:
+        context: sit

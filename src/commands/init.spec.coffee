@@ -24,11 +24,8 @@ describe 'init', ->
   it 'should create the base directory of the project', ->
     expect(fs.existsSync(projectPath)).toBeTruthy()
 
-  it 'should create the steps directory of the project', ->
-    expect(fs.existsSync(path.join(projectPath, 'steps'))).toBeTruthy()
-  
-  it 'should create the stages directory of the projet', ->
-    expect(fs.existsSync(path.join(projectPath, 'stages'))).toBeTruthy()
+  it 'should create the iterations directory of the project', ->
+    expect(fs.existsSync(path.join(projectPath, 'iterations'))).toBeTruthy()
   
   it 'should create the project configuration file', ->
     expect(fs.existsSync(path.join(projectPath, 'astromech.yaml'))).toBeTruthy()
